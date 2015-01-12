@@ -34,15 +34,14 @@ public class LibraryImpl implements Library {
 		users[numUsers++] = newUser;
 		return numUsers;
 	}
-	
-	@Override
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	@Override
-	public int getId() {
-		return id;
-	}
 
+	@Override
+	public int getId(String name) {
+		for (int i = 0; i < users.length; i++){
+			if (users[i].getName() == name) return users[i].getId();
+		}
+		User newUser = new UserImpl(name);
+		newUser.register(this);
+		return newUser.getId();
+	}
 }
