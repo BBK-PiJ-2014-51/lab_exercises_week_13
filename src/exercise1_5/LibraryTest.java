@@ -7,9 +7,12 @@ import org.junit.Test;
 
 public class LibraryTest {
 	Library library;
+	User user;
+	
 	@Before
 	public void build(){
 		library = new LibraryImpl("Library A");
+		user = new UserImpl("Joe");
 	}
 	
 	@Test
@@ -23,4 +26,10 @@ public class LibraryTest {
 		assertEquals(5, library.getMaxBooksPerUser());
 	}
 
+	@Test
+	public void testLibraryNameSearch(){
+		user.register(library);
+		int id = user.getId();
+		assertEquals(id, library.getId(user.getName()));
+	}
 }
