@@ -1,20 +1,21 @@
 package exercise1_1;
 
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class BookTest {
-	Book book;
+	private Book book;
 	
-	@BeforeClass
+	@Before
 	public void buildBook(){
-		Book book = new Book("For Whom the Bell Tolls", "Ernest Hemingway");
+		book = new BookImpl("For Whom the Bell Tolls", "Ernest Hemingway");
 	}
 	
 	@Test
 	public void testGetAuthor() {
-		assertEquals( "Ernest Hemingway", book.getAuthor());
+		assertEquals("Ernest Hemingway", book.getAuthor());
 	}
 	
 	@Test
