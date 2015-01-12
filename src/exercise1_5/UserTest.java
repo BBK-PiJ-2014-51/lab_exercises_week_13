@@ -25,9 +25,4 @@ public class UserTest {
 		user.setId(99);
 		assertEquals(99, user.getId());
 	}
-	
-	public void testLibrary(){
-		user.register(library);
-		assertEquals(13, user.getLibrary().getId());
-	}
 }
