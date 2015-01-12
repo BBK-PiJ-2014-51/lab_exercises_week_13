@@ -8,16 +8,10 @@ public interface Library {
 	public String getName();
 	
 	/**
-	 * Sets Library id
-	 * @param the library's id
-	 */
-	public void setId(int id);
-	
-	/**
 	 * Returns Library id
 	 * @return the library's id
 	 */
-	public int getId();
+	public int getId(String name);
 	
 	
 	/**
