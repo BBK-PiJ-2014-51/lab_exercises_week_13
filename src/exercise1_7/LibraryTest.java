@@ -60,4 +60,33 @@ public class LibraryTest {
 		returnedBook = library.takeBook(book.getTitle());
 		assertEquals(book.getAuthor(), returnedBook.getAuthor());
 	}
+	
+	@Test
+	public void getReaderCount(){
+		int numUsers = 12;
+		for(int i = 0; i < numUsers; i++)
+			library.registerUser(user);
+		assertEquals(numUsers, library.getReaderCount());
+	}
+	
+	@Test
+	public void getBookCount(){
+		int numBooks = 11;
+		for(int i = 0; i < numBooks; i++)
+			library.addBook(book.getTitle(), book.getAuthor());
+		assertEquals(numBooks, library.getBookCount());
+	}
+	
+	@Test
+	public void getBorrowedBookCount(){
+		int numBooks = 10;
+		Book book2 = new BookImpl("The Scarlet Letter", "Nathaniel Hawthorne");
+		for(int i = 0; i < numBooks; i++){
+			if (i % 2 == 0) library.addBook(book.getTitle(), book.getAuthor());
+			else library.addBook(book2.getTitle(), book2.getAuthor());
+			library.takeBook(book.getTitle());
+		}
+		assertEquals(numBooks / 2, library.getBookBorrowedCount());
+	}
+	
 }
