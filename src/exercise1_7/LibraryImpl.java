@@ -87,6 +87,25 @@ public class LibraryImpl implements Library {
 
 	@Override
 	public void returnBook(Book book) {
-		book.setTaken(false);	
+		book.setTaken(false);
+	}
+
+	@Override
+	public int getReaderCount() {
+		return numUsers;
+	}
+
+	@Override
+	public int getBookCount() {
+		return numBooks;
+	}
+
+	@Override
+	public int getBookBorrowedCount() {
+		int bookCount = 0;
+		for (int i = 0; i < numBooks; i++){
+			if (books[i].isTaken()) bookCount++;
+		}
+		return bookCount;
 	}
 }
